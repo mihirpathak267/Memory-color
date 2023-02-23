@@ -1,0 +1,24 @@
+{
+  "name": "memory-color",
+  "version": "1.0.0",
+  "description": "This is a experiment made to research about the phenomenon of cognitive penetration.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mihirpathak267/Memory-color.git"
+  },
+  "author": "Mihir Pathak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mihirpathak267/Memory-color/issues"
+  },
+  "homepage": "https://github.com/mihirpathak267/Memory-color#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2"
+  }
+}

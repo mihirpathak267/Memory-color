@@ -1,0 +1,16 @@
+#color-picker {
+    width: 300px;
+    height: 20px;
+    background: linear-gradient(to right, rgb(255, 255, 0), rgb(255, 252, 0), rgb(255, 249, 0), rgb(255, 246, 0), rgb(255, 243, 0), rgb(255, 240, 0), rgb(255, 237, 0), rgb(255, 234, 0), rgb(255, 231, 0), rgb(255, 228, 0), rgb(255, 225, 0), rgb(255, 222, 0), rgb(255, 219, 0), rgb(255, 216, 0), rgb(255, 213, 0), rgb(255, 210, 0), rgb(255, 207, 0), rgb(255, 204, 0), rgb(255, 201, 0), rgb(255, 198, 0), rgb(255, 195, 0), rgb(255, 192, 0), rgb(255, 189, 0), rgb(255, 186, 0), rgb(255, 183, 0), rgb(255, 180, 0), rgb(255, 177, 0), rgb(255, 174, 0), rgb(255, 171, 0), rgb(255, 168, 0), rgb(255, 165, 0), rgb(255, 162, 0), rgb(255, 159, 0));
+    border: 1px solid black;
+}
+
+#color-picker-marker {
+    width: 10px;
+    height: 30px;
+    background-color: white;
+    border: 2px solid black;
+    position: relative;
+    top: -5px;
+    left: 0;
+}

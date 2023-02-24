@@ -32,4 +32,16 @@
 		});
 
 		updateMarker(Math.floor(Math.random() * 300));
-	
+// Get the image element
+var image = document.getElementById("my-image");
+var rectangle = document.getElementById("rectangle");
+
+// Generate a random color using RGB values
+var r = 255;
+var g = 159 + Math.floor(Math.random() * 33);
+var b = 0;
+var color = "rgb(" + r + "," + g + "," + b + ")";
+
+// Set the image's background color using the random color
+image.style.fill = color;
+rectangle.style.fill = color;

@@ -1,0 +1,65 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>Random PNG Color</title>
+</head>
+<body>
+	<img id="my-image" src="banana3.png">
+	<button onclick="changeColor()">Change Color</button>
+
+	<script>
+		function changeColor() {
+			// Get the canvas element and the image element
+			var canvas = document.createElement("canvas");
+			var img = document.getElementById("my-image");
+			canvas.width = img.width;
+			canvas.height = img.height;
+			var ctx = canvas.getContext("2d");
+
+			// Draw the image onto the canvas
+			ctx.drawImage(img, 0, 0, img.width, img.height);
+
+			// Get the image data
+			var imageData = ctx.getImageData(0, 0, img.width, img.height);
+			var pixels = imageData.data;
+
+			// Loop through the pixels and change their color
+			for (var i = 0; i < pixels.length; i += 4) {
+				// Only change the color of non-transparent pixels
+				if (pixels[i + 3] > 0) {
+					pixels[i] = Math.floor(Math.random() * 256); // Red value
+					pixels[i + 1] = Math.floor(Math.random() * 256); // Green value
+					pixels[i + 2] = Math.floor(Math.random() * 256); // Blue value
+				}
+			}
+
+			// Put the modified image data back onto the canvas
+			ctx.putImageData(imageData, 0, 0);
+
+			// Set the image source to the modified canvas
+			img.src = canvas.toDataURL();
+		}
+	</script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .banana {
+        fill: black;
+      }
+    </style>
+  </head>
+  <body>
+    <svg viewBox="0 0 640 480">
+      <path class="banana" d="M174.488,57.142
+        c-7.761-0.773-23.266-6.459-23.266-6.459c-1.939-0.453-1.939-2.092,0-2.546c0,0,15.508-5.686,23.266-6.459
+        c5.014-0.5,8.233,4.113,12.102,4.113c3.869,0,7.088-4.613,12.102-4.113c7.758,0.773,23.266,6.459,23.266,6.459
+        c1.939,0.453,1.939,2.092,0,2.546c0,0-15.508,5.686-23.266,6.459c-5.014,0.5-8.233-4.113-12.102-4.113
+        C182.721,57.142,179.502,61.655,174.488,57.142z"/>
+    </svg>
+  </body>
+</html>
+  

@@ -1,8 +1,7 @@
 <%- include("header"); -%>
-<!-- <main class="px-3"> -->
-	<main>
+<main>
 	<h1>Memory Color</h1>
-	<p class="lead">Please choose on the slider the color you see on the banana.</p>
+	<p class="lead">Please choose on the slider the color you see on the <%= stimuliTitle %>.</p>
 	<p class="lead">
 	  <!-- <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</a> -->
 	</p>
@@ -12,8 +11,9 @@
 		  <!-- <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
 		  <button class="btn btn-primary btn-lg" type="button">Example button</button> -->
 		<form action="/" method="post">  
+          <%  if (stimuliTitle == "banana"){ %>
 		<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-		width="395.000000pt" height="220.000000pt" viewBox="0 0 595.000000 420.000000">
+		width="395.000000pt" height="220.000000pt" viewBox="0 0 595.000000 420.000000" onload="colorSVG()">
 	   
 	   <g transform="translate(0.000000,420.000000) scale(0.100000,-0.100000)" >
 	   <path id="my-image" class="banana" d="M5640 3843 c-8 -2 -47 -18 -86 -35 -57 -24 -72 -34 -72 -51 0 -52
@@ -25,22 +25,37 @@
 	   -305 1435 -341 330 -20 600 -3 895 56 592 118 1068 346 1502 717 279 239 481
 	   545 578 874 48 160 44 367 -11 685 -39 230 -32 555 17 684 17 45 66 130 141
 	   245 16 24 15 28 -16 95 -37 77 -63 106 -118 130 -36 14 -116 19 -148 8z m157
-	   -40 c27  "/>
+	   -40 c27  " />
 	   </g>
 	   </svg>
 	   <br>
 		  <div id="color-picker-container">
 			<div id="color-picker"></div>
 			<div id="color-picker-marker"></div>
+            </div>
 			<input type="hidden" id="rgb" name="rgbColor">
 			<button class="btn btn-primary btn-lg" type="submit">Submit</button>
-		</div>	
+			
+    <% } else { %>
+        <svg viewBox="-11 7 60 15" xmlns="http://www.w3.org/2000/svg" onload="colorSVG()">
+            <rect id="rectangle" x="10" y="10" width="17" height="9"/>
+          </svg>
+          <label for="cars">Choose the color you see in the <%= stimuliTitle %> above :</label>
+
+    <select name="colors" id="colors">
+    <option value="yellow">Yellow</option>
+    <option value="amber">Amber</option>
+    <option value="orange">Orange</option>
+    
+    </select>
+          <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+    <% } %>
 	</form>
 		</div>
 	  </div>
   </main>
   
-	<div id="color-picker-container">
+	<!-- <div id="color-picker-container">
 		<div id="color-picker"></div>
 		<div id="color-picker-marker"></div>
 	</div>
@@ -69,7 +84,5 @@
 	   <svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
 		<rect id="rectangle" x="10" y="10" width="80" height="30" />
 	  </svg>
-    </div>
-
+    </div> -->
 <%- include("footer"); -%>
- 

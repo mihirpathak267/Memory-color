@@ -11,17 +11,32 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 app.get("/", function(req, res){
-    res.render("home");
+    res.render("start");
 });
 
 app.post("/", function(req, res){
     console.log(req.body.rgbColor);
 });
 const defaultArray = ["bs", "rs","bc","rc"];
+const count = 30;
+let sequence = [];
+for (let i = 0; i < defaultArray.length; i++) {
+  for (let j = 0; j < count; j++) {
+    sequence.push(defaultArray[i]);
+  }
+}
+
+// Shuffle the sequence using the Fisher-Yates algorithm
+for (let i = sequence.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [sequence[i], sequence[j]] = [sequence[j], sequence[i]];
+}
+console.log(sequence);
 
 
-var question = 0;
 
+var question = -1;
+var dataArray = [];
 // make a get route for the change ejs file that randomly changes the stimuli shown
 app.get("/change", function(req, res){
     
@@ -29,14 +44,34 @@ app.get("/change", function(req, res){
     var stimuli = defaultArray[change];
     let color = colorGenerator();
     
-    if (question<=120){
+    if (question<119){
     question+=1;
-    res.render("change", {stimuliTitle: stimuli, color: color, question:question});
+    res.render("change", {stimuliTitle: sequence[question], color: color, question:question});
     
     }
+    else {
+        res.render("finish");
+    }
+})
+app.get("/finish", function (req, res){
+    const workbook = XLSX.utils.book_new();
+    const worksheet = XLSX.utils.json_to_sheet(dataArray);
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+    XLSX.writeFile(workbook, "data.xlsx");
 })
 app.post("/change", (req,res)=>{
     console.log(req.body)
+    const stimuli = req.body.stimuli;
+    const questionRGB = req.body.qrgbColor;
+    const answerRGB = req.body.rgbColor;
+    dataArray.push(
+        {
+            stimuli: stimuli,
+            questionRGB: questionRGB,
+            answerRGB: answerRGB
+        }
+    )
+    console.log(dataArray);
     
     res.redirect('/change');
 })

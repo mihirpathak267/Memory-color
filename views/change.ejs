@@ -40,19 +40,21 @@
 			<div id="color-picker"></div>
 			<div id="color-picker-marker"></div>
             </div>
-			<input type="hidden" id="rgb" name="rgbColor">
+			
 			<input type="hidden" id="qrgb" name="qrgbColor" value="<%= col %>">
-			<button class="btn btn-primary btn-lg" type="submit" value="banana-slider">Submit</button>
+			<input type="hidden" id="rgb" name="rgbColor">
+			
+			<button class="btn btn-primary btn-lg" type="submit" value="banana-slider" name="stimuli">Submit</button>
 			<%} else {%>
 				<label for="cars">Choose the color you see in the <%= stimuliTitle %> above :</label>
 
-				<select name="colors" id="colors">
+				<select name="rgbColor" id="colors">
 				<option value="yellow">Yellow</option>
 				<option value="amber">Amber</option>
 				<option value="orange">Orange</option>
 			</select>
 			<input type="hidden" id="qrgb" name="qrgbColor" value="<%= col %>">
-			<button class="btn btn-primary btn-lg" type="submit" value="banana-choice">Submit</button>
+			<button class="btn btn-primary btn-lg" type="submit" value="banana-choice" name="stimuli">Submit</button>
 				<% }%>
 			
     <% } else if (stimuliTitle[0] == "r"){  %>
@@ -72,19 +74,20 @@
 			<div id="color-picker"></div>
 			<div id="color-picker-marker"></div>
             </div>
+			<input type="hidden" id="qrgb" name="qrgbColor" value="<%= col %>">
 			<input type="hidden" id="rgb" name="rgbColor">
-			<input type="hidden" id="qrgb" name="qrgbColor">
-			<button class="btn btn-primary btn-lg" type="submit" value="rectangle-slider">Submit</button>
+			
+			<button class="btn btn-primary btn-lg" type="submit" value="rectangle-slider" name="stimuli">Submit</button>
 			<%} else {%>
 				<label for="cars">Choose the color you see in the <%= stimuliTitle %> above :</label>
 
-				<select name="colors" id="colors">
+				<select name="rgbColor" id="colors">
 				<option value="yellow">Yellow</option>
 				<option value="amber">Amber</option>
 				<option value="orange">Orange</option>
 			</select>
 			<input type="hidden" id="qrgb" name="qrgbColor" value="<%= col %>">
-			<button class="btn btn-primary btn-lg" type="submit" value="rectangle-choice">Submit</button>
+			<button class="btn btn-primary btn-lg" type="submit" value="rectangle-choice" name="stimuli">Submit</button>
 				<% }%>
 
     

@@ -2,7 +2,7 @@
 <main>
 	<h1>Memory Color</h1>
 	<p class="lead">Please choose on the slider the color you see on the <%= stimuliTitle %>.</p>
-	<p class="lead">
+	<p class="lead"><%= question%>
 	  <!-- <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</a> -->
 	</p>
 	<div class="p-5 mb-4 bg-light rounded-3">
@@ -10,13 +10,19 @@
 		  <h1 class="display-5 fw-bold heading">Experiment</h1>
 		  <!-- <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
 		  <button class="btn btn-primary btn-lg" type="button">Example button</button> -->
-		<form action="/" method="post">  
-          <%  if (stimuliTitle == "banana"){ %>
-		<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+		<form action="/change" method="post">  
+          <%  if (stimuliTitle[0] == "b"){ %>
+			<% const col = color%>
+			<style>
+				#my-image{
+					fill: <%= col %>;
+				}
+			</style>
+		<svg version="1.0" xmlns="http://www.w3.org/2000/svg" id="my-image"
 		width="395.000000pt" height="220.000000pt" viewBox="0 0 595.000000 420.000000" onload="colorSVG()">
 	   
 	   <g transform="translate(0.000000,420.000000) scale(0.100000,-0.100000)" >
-	   <path id="my-image" class="banana" d="M5640 3843 c-8 -2 -47 -18 -86 -35 -57 -24 -72 -34 -72 -51 0 -52
+	   <path  style="fill:'<%= color %>';"class="banana" d="M5640 3843 c-8 -2 -47 -18 -86 -35 -57 -24 -72 -34 -72 -51 0 -52
 	   -108 -451 -158 -585 -61 -161 -131 -259 -356 -495 -245 -258 -532 -506 -696
 	   -602 -213 -125 -549 -226 -892 -269 -489 -61 -924 -28 -1421 108 -203 56 -295
 	   93 -769 309 -198 90 -366 153 -640 240 -113 36 -233 75 -266 88 l-62 22 -65
@@ -28,27 +34,61 @@
 	   -40 c27  " />
 	   </g>
 	   </svg>
+	   <% if (stimuliTitle[1] == "s"){ %>
 	   <br>
 		  <div id="color-picker-container">
 			<div id="color-picker"></div>
 			<div id="color-picker-marker"></div>
             </div>
 			<input type="hidden" id="rgb" name="rgbColor">
-			<button class="btn btn-primary btn-lg" type="submit">Submit</button>
-			
-    <% } else { %>
-        <svg viewBox="-11 7 60 15" xmlns="http://www.w3.org/2000/svg" onload="colorSVG()">
-            <rect id="rectangle" x="10" y="10" width="17" height="9"/>
-          </svg>
-          <label for="cars">Choose the color you see in the <%= stimuliTitle %> above :</label>
+			<input type="hidden" id="qrgb" name="qrgbColor" value="<%= col %>">
+			<button class="btn btn-primary btn-lg" type="submit" value="banana-slider">Submit</button>
+			<%} else {%>
+				<label for="cars">Choose the color you see in the <%= stimuliTitle %> above :</label>
 
-    <select name="colors" id="colors">
-    <option value="yellow">Yellow</option>
-    <option value="amber">Amber</option>
-    <option value="orange">Orange</option>
+				<select name="colors" id="colors">
+				<option value="yellow">Yellow</option>
+				<option value="amber">Amber</option>
+				<option value="orange">Orange</option>
+			</select>
+			<input type="hidden" id="qrgb" name="qrgbColor" value="<%= col %>">
+			<button class="btn btn-primary btn-lg" type="submit" value="banana-choice">Submit</button>
+				<% }%>
+			
+    <% } else if (stimuliTitle[0] == "r"){  %>
+		<% const col = color%>
+			<style>
+				#rectangle{
+					fill: <%= col %>;
+				}
+			</style>
+        <svg viewBox="-11 7 60 15" xmlns="http://www.w3.org/2000/svg" id="rectangle">
+            <rect x="10" y="10" width="17" height="6"/>
+          </svg>
+
+		<% if (stimuliTitle[1] == "s") { %>
+			<br>
+		  <div id="color-picker-container">
+			<div id="color-picker"></div>
+			<div id="color-picker-marker"></div>
+            </div>
+			<input type="hidden" id="rgb" name="rgbColor">
+			<input type="hidden" id="qrgb" name="qrgbColor">
+			<button class="btn btn-primary btn-lg" type="submit" value="rectangle-slider">Submit</button>
+			<%} else {%>
+				<label for="cars">Choose the color you see in the <%= stimuliTitle %> above :</label>
+
+				<select name="colors" id="colors">
+				<option value="yellow">Yellow</option>
+				<option value="amber">Amber</option>
+				<option value="orange">Orange</option>
+			</select>
+			<input type="hidden" id="qrgb" name="qrgbColor" value="<%= col %>">
+			<button class="btn btn-primary btn-lg" type="submit" value="rectangle-choice">Submit</button>
+				<% }%>
+
     
-    </select>
-          <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+    
     <% } %>
 	</form>
 		</div>

@@ -1,6 +1,7 @@
 const colorPicker = document.getElementById("color-picker");
 const marker = document.getElementById("color-picker-marker");
 
+
 function getColor(x) {
 	let r = 255;
 	let g = 255 - (Math.floor(x / 10) * 3);
@@ -43,6 +44,9 @@ var b = 0;
 var color = "rgb(" + r + "," + g + "," + b + ")";
 
 // Set the image's background color using the random color
-image.style.fill = color;
-rectangle.style.fill = color;
+window.onload(()=>{
+	image.style.fill = color;
+	rectangle.style.fill = color;
+})
+
 

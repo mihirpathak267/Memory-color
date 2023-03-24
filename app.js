@@ -17,6 +17,12 @@ app.get("/", function(req, res){
 app.post("/", function(req, res){
     console.log(req.body.rgbColor);
 });
+app.post("/form", (req, res)=>{
+    res.render("userform");
+})
+app.get("/slider", (req,res)=>{
+    res.render("slider");
+})
 const defaultArray = ["bs", "rs","bc","rc"];
 const count = 30;
 let sequence = [];
@@ -35,19 +41,21 @@ console.log(sequence);
 
 
 
-var question = -1;
+var question = 0;
+var inde = 0;   
 var dataArray = [];
 // make a get route for the change ejs file that randomly changes the stimuli shown
 app.get("/change", function(req, res){
     
-    var change = Math.floor(Math.random()*4);
-    var stimuli = defaultArray[change];
+    // var change = Math.floor(Math.random()*4);
+    // var stimuli = defaultArray[change];
     let color = colorGenerator();
     
-    if (question<119){
+    if (question<12){
     question+=1;
-    res.render("change", {stimuliTitle: sequence[question], color: color, question:question});
-    
+
+    res.render("change", {stimuliTitle: sequence[inde], color: color, question:question});
+    inde+=1;
     }
     else {
         res.render("finish");
@@ -62,8 +70,12 @@ app.get("/finish", function (req, res){
 app.post("/change", (req,res)=>{
     console.log(req.body)
     const stimuli = req.body.stimuli;
-    const questionRGB = req.body.qrgbColor;
-    const answerRGB = req.body.rgbColor;
+    const questionRGB = req.body.qrgbColor.substring(4,13);
+    var answerRGB = req.body.rgbColor;
+    if (answerRGB[0]==='r'){
+        answerRGB = answerRGB.substring(4,13);
+    }
+    
     dataArray.push(
         {
             stimuli: stimuli,

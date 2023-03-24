@@ -9,8 +9,10 @@ function getColor(x) {
 	return "rgb(" + r + "," + g + "," + b + ")";
 }
 function updateMarker(x) {
+	var image = document.getElementById("my-image");
 	marker.style.left = x + "px";
 	marker.style.backgroundColor = getColor(x);
+	image.style.fill = getColor(x);
 	console.log(getColor(x));
 	document.getElementById("rgb").setAttribute("value", getColor(x));
 }
@@ -34,6 +36,7 @@ colorPicker.addEventListener("click", function(event) {
 updateMarker(Math.floor(Math.random() * 300));
 // Get the image element
 var image = document.getElementById("my-image");
+
 var rectangle = document.getElementById("rectangle");
 
 // Generate a random color using RGB values

@@ -17,12 +17,15 @@
     left: 0;
     
 }
-#color-picker-container{
-    /* display: flex;
+/* #color-picker-container{
+    display: flex;
     justify-content: center;
-    align-items: center; */
-}
+    align-items: center;
+} */
 
+#h3head{
+    text-align: center;
+}
 .jumbo{
     color: black;
     text-align: center;
@@ -30,7 +33,15 @@
 .heading{
     margin-top: -40px;
 }
+.btn{
+    margin-top: 10px;
+    margin-bottom: -20px;
+}
 
+.instructionp{
+    font-size: x-large;
+    margin-right: 5px;
+}
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -80,6 +91,30 @@
     text-align: center;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
+}
+.agebox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.genderbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gender{
+    margin-right: 20px;
+}
+/* .formbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+#age{
+    width: 7%;
+    margin: 0 20px;
+    
 }
 
     

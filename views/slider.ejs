@@ -1,0 +1,35 @@
+<%- include("partials/header"); -%>
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5 jumbo">
+      <h1 class="display-5 fw-bold heading">Memory Color</h1>
+        <p class="instructionp">To begin with the experiment you first need to adjust the slider to the color of banana you most agree with.</p>
+        <form action="/change" method="post">
+        <svg version="1.0" xmlns="http://www.w3.org/2000/svg" id="my-image"
+		width="395.000000pt" height="220.000000pt" viewBox="0 0 595.000000 420.000000" onload="colorSVG()">
+	   
+	   <g transform="translate(0.000000,420.000000) scale(0.100000,-0.100000)" >
+	   <path  class="banana" d="M5640 3843 c-8 -2 -47 -18 -86 -35 -57 -24 -72 -34 -72 -51 0 -52
+	   -108 -451 -158 -585 -61 -161 -131 -259 -356 -495 -245 -258 -532 -506 -696
+	   -602 -213 -125 -549 -226 -892 -269 -489 -61 -924 -28 -1421 108 -203 56 -295
+	   93 -769 309 -198 90 -366 153 -640 240 -113 36 -233 75 -266 88 l-62 22 -65
+	   -54 c-59 -48 -69 -62 -96 -132 -17 -43 -31 -85 -31 -93 0 -55 159 -398 297
+	   -644 129 -228 208 -337 342 -470 207 -206 417 -354 696 -490 415 -203 846
+	   -305 1435 -341 330 -20 600 -3 895 56 592 118 1068 346 1502 717 279 239 481
+	   545 578 874 48 160 44 367 -11 685 -39 230 -32 555 17 684 17 45 66 130 141
+	   245 16 24 15 28 -16 95 -37 77 -63 106 -118 130 -36 14 -116 19 -148 8z m157
+	   -40 c27  " />
+	   </g>
+	   </svg>
+       <div id="color-picker-container">
+        <div id="color-picker"></div>
+        <div id="color-picker-marker"></div>
+        </div>
+        <div class="btn">
+            <input type="hidden" id="rgb" name="sliderRGB">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </div>
+          </form>
+    </div>
+</div>
+
+<%- include("partials/footer"); -%>

@@ -3,6 +3,37 @@ const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const XLSX = require('xlsx');
 
+const mongoose = require('mongoose');
+
+
+// main().catch(err => console.log(err));
+
+// async function main(){
+//     await mongoose.connect("mongodb://localhost:27019/MemoryDB");
+
+// }
+var age = '';
+var gender = '';
+// const number = Date.now() + Math.random();
+// console.log(number);
+// const responseSchema = new mongoose.Schema({
+//     stimuli: String,
+//     question: {
+//       type: String,
+//       required: true
+//     },
+//     answer: {
+//       type: String,
+//       required: true
+//     }
+//   });
+// const userSchema = new mongoose.Schema({
+//     age: String,
+//     gender: String,
+//     responses: [responseSchema]
+// })
+// const User = new mongoose.model('User', userSchema);
+
 const app = express();
 
 app.set("view engine", "ejs");
@@ -19,6 +50,13 @@ app.post("/", function(req, res){
 });
 app.post("/form", (req, res)=>{
     res.render("userform");
+})
+app.post("/user", (req, res)=>{
+    console.log(req.body);
+    age = req.body.age;
+    gender = req.body.gender;
+    res.redirect('change');
+    
 })
 app.get("/slider", (req,res)=>{
     res.render("slider");
@@ -51,21 +89,30 @@ app.get("/change", function(req, res){
     // var stimuli = defaultArray[change];
     let color = colorGenerator();
     
-    if (question<12){
+    if (question<3){
     question+=1;
 
     res.render("change", {stimuliTitle: sequence[inde], color: color, question:question});
     inde+=1;
     }
     else {
-        res.render("finish");
+        res.redirect("finish");
     }
 })
 app.get("/finish", function (req, res){
-    const workbook = XLSX.utils.book_new();
-    const worksheet = XLSX.utils.json_to_sheet(dataArray);
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
-    XLSX.writeFile(workbook, "data.xlsx");
+    // const workbook = XLSX.utils.book_new();
+    // const worksheet = XLSX.utils.json_to_sheet(dataArray);
+    // XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+    // XLSX.writeFile(workbook, "data.xlsx");
+    // const newUser = new User({
+    //     age: age,
+    //     gender: gender,
+    //     responses: dataArray
+    // })
+    // newUser.save()
+    // .catch(err =>console.log(err));
+
+    res.render("finish")
 })
 app.post("/change", (req,res)=>{
     console.log(req.body)
@@ -79,8 +126,8 @@ app.post("/change", (req,res)=>{
     dataArray.push(
         {
             stimuli: stimuli,
-            questionRGB: questionRGB,
-            answerRGB: answerRGB
+            question: questionRGB,
+            answer: answerRGB
         }
     )
     console.log(dataArray);

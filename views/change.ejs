@@ -35,7 +35,7 @@
 	   </g>
 	   </svg>
 	   <% if (stimuliTitle[1] == "s"){ %>
-		<p class="instructionp">Please choose on the slider the color you see on the image above</p>
+		<p class="instructionp">Choose on the slider the color you see on the image above</p>
 	   <br>
 		  <div id="color-picker-container">
 			<div id="color-picker"></div>
@@ -54,13 +54,12 @@
 				<div class="genderbox">
 				
 				<p class="instructionp">Choose the color you see in the image above</p>
-				<div class="genderbox">
+				
 				<select name="rgbColor" id="colors">
 				<option value="yellow">Yellow</option>
 				<option value="amber">Amber</option>
 				<option value="orange">Orange</option>
 				</select>
-				</div>
 				</div>
 			<input type="hidden" id="qrgb" name="qrgbColor" value="<%= col %>">
 			<!-- <button class="btn btn-primary btn-lg" type="submit" value="banana-choice" name="stimuli">Submit</button> -->
@@ -81,7 +80,7 @@
           </svg>
 
 		<% if (stimuliTitle[1] == "s") { %>
-			<p class="instructionp">Please choose on the slider the color you see on the image above</p>
+			<p class="instructionp">Choose on the slider the color you see on the image above</p>
 			<br>
 		  <div id="color-picker-container">
 			<div id="color-picker"></div>
@@ -97,7 +96,7 @@
 			  </div>
 			<%} else {%>
 				<div class="genderbox">
-					<label for="color">Choose the color you see in the image above</label>
+					<p class="instructionp">Choose the color you see in the image above</p>
 	
 					<select name="rgbColor" id="colors">
 					<option value="yellow">Yellow</option>

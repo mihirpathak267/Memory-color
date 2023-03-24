@@ -12,7 +12,7 @@ function updateMarker(x) {
 	var image = document.getElementById("my-image");
 	marker.style.left = x + "px";
 	marker.style.backgroundColor = getColor(x);
-	image.style.fill = getColor(x);
+	// image.style.fill = getColor(x);
 	console.log(getColor(x));
 	document.getElementById("rgb").setAttribute("value", getColor(x));
 }

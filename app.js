@@ -6,33 +6,41 @@ const XLSX = require('xlsx');
 const mongoose = require('mongoose');
 
 
-// main().catch(err => console.log(err));
 
-// async function main(){
-//     await mongoose.connect("mongodb://localhost:27019/MemoryDB");
-
-// }
+mongoose.connect('mongodb://127.0.0.1/memoryDB', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000, // wait up to 5 seconds for server selection
+  socketTimeoutMS: 45000,
+})
+.then(() => console.log('MongoDB connected'))
+.catch((err) => console.log('MongoDB connection error:', err));
 var age = '';
 var gender = '';
-// const number = Date.now() + Math.random();
-// console.log(number);
-// const responseSchema = new mongoose.Schema({
-//     stimuli: String,
-//     question: {
-//       type: String,
-//       required: true
-//     },
-//     answer: {
-//       type: String,
-//       required: true
-//     }
-//   });
-// const userSchema = new mongoose.Schema({
-//     age: String,
-//     gender: String,
-//     responses: [responseSchema]
-// })
-// const User = new mongoose.model('User', userSchema);
+const number = Math.floor(Date.now() + Math.random());
+console.log(number);
+const responseSchema = new mongoose.Schema({
+    
+    stimuli: {
+        type: String,
+        required: true
+    },
+    question: {
+      type: String,
+      required: true
+    },
+    answer: {
+      type: String,
+      required: true
+    }
+  });
+const userSchema = new mongoose.Schema({
+    uid: Number,
+    age: String,
+    gender: String,
+    responses: [responseSchema]
+})
+const User = new mongoose.model('User', userSchema);
 
 const app = express();
 
@@ -104,13 +112,15 @@ app.get("/finish", function (req, res){
     // const worksheet = XLSX.utils.json_to_sheet(dataArray);
     // XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
     // XLSX.writeFile(workbook, "data.xlsx");
-    // const newUser = new User({
-    //     age: age,
-    //     gender: gender,
-    //     responses: dataArray
-    // })
-    // newUser.save()
-    // .catch(err =>console.log(err));
+    const newUser = new User({
+        uid: number,
+        age: age,
+        gender: gender,
+        responses: dataArray
+    })
+    console.log(newUser);
+    newUser.save((err)=>console.log(err));
+
 
     res.render("finish")
 })
@@ -134,6 +144,16 @@ app.post("/change", (req,res)=>{
     
     res.redirect('/change');
 })
+// User.findOne({uid:1679672785665})
+// .then((user)=>console.log(user))
+// .catch(err=>console.log(err));
+app.get("/data",(req,res)=>{
+    User.find({})
+    .then(user=>console.log(user))
+    .catch(err=>console.log(err));
+    // mongoexport --db memoryDB --collection users --out dat.json
+})
+
 
 app.listen(4000, function(req, res){
     console.log("Server is listening on port 4000");

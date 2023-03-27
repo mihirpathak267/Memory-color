@@ -2,6 +2,8 @@ const express = require("express");
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const XLSX = require('xlsx');
+const fs = require('fs');
+const jsonData = require('./dat.json');
 
 const mongoose = require('mongoose');
 
@@ -110,7 +112,7 @@ app.get("/change", function(req, res){
     // var stimuli = defaultArray[change];
     let color = colorGenerator();
     
-    if (question<3){
+    if (question<12){
     question+=1;
 
     res.render("change", {stimuliTitle: sequence[inde], color: color, question:question});
@@ -167,7 +169,9 @@ app.get("/data",(req,res)=>{
     .catch(err=>console.log(err));
     // mongoexport --db memoryDB --collection users --out dat.json
 })
-
+app.get("/generate",(req, res)=>{
+    generateExcel()
+})
 
 app.listen(4000, function(req, res){
     console.log("Server is listening on port 4000");
@@ -178,4 +182,59 @@ function colorGenerator(){
     var b = 0;
     var generatedColor = "rgb(" + r + "," + g + "," + b + ")";
     return generatedColor
+}
+function generateExcel(){
+  
+  // initialize an empty worksheet
+const worksheet = XLSX.utils.json_to_sheet([]);
+
+// create an empty array to store data
+let data = [];
+
+// loop through each object in jsonData
+for (let i = 0; i < jsonData.length; i++) {
+  const obj = jsonData[i];
+  const uid = obj.uid;
+  const age = obj.age;
+  const gender = obj.gender;
+  const slider = obj.slider;
+
+  // loop through each response object
+  for (let j = 0; j < obj.responses.length; j++) {
+    const response = obj.responses[j];
+    const stimuli = response.stimuli;
+    const question = response.question;
+    const answer = response.answer;
+
+    // create a new object for each row of data
+    const row = {
+      uid: j === 0 ? uid : '',
+      age: j === 0 ? age : '',
+      gender: j === 0 ? gender : '',
+      slider: j === 0 ? slider : '',
+      stimuli: stimuli,
+      question: question,
+      answer: answer
+    };
+
+    // add the row to the data array
+    data.push(row);
+  }
+}
+
+// add the data to the worksheet
+XLSX.utils.sheet_add_json(worksheet, data, {skipHeader: true, origin: 'A2'});
+
+// set up the headers
+const headers = ["UID", "Age", "Gender", "Slider", "Stimuli", "Question", "Answer"];
+XLSX.utils.sheet_add_aoa(worksheet, [headers], {origin: 'A1'});
+
+// create a new workbook and add the worksheet to it
+const workbook = XLSX.utils.book_new();
+XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+
+// write the workbook to a file
+XLSX.writeFile(workbook, 'data3.xlsx');  
+    
+console.log("succesfully generated the excel file");
 }

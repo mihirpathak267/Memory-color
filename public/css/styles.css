@@ -3,6 +3,7 @@ body
 	display: table-cell;
     vertical-align: middle;
     align-content: center;
+    font-size: larger;
 }
 ul {
   white-space: nowrap;

@@ -9,12 +9,14 @@ function getColor(x) {
 	return "rgb(" + r + "," + g + "," + b + ")";
 }
 function updateMarker(x) {
-	var image = document.getElementById("my-image");
+	// var sliderImage = document.getElementById("slider-image");
+	
 	marker.style.left = x + "px";
 	marker.style.backgroundColor = getColor(x);
-	// image.style.fill = getColor(x);
+	// sliderImage.style.fill = getColor(x);
 	console.log(getColor(x));
 	document.getElementById("rgb").setAttribute("value", getColor(x));
+	// document.getElementsByClassName("sliderRGB").setAttribute("value", getColor(x));
 }
 
 function getPosition(element) {
@@ -47,9 +49,9 @@ var b = 0;
 var color = "rgb(" + r + "," + g + "," + b + ")";
 
 // Set the image's background color using the random color
-window.onload(()=>{
-	image.style.fill = color;
-	rectangle.style.fill = color;
-})
+// window.onload(()=>{
+// 	image.style.fill = color;
+// 	rectangle.style.fill = color;
+// })
 
 

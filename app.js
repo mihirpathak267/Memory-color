@@ -17,6 +17,7 @@ mongoose.connect('mongodb://127.0.0.1/memoryDB', {
 .catch((err) => console.log('MongoDB connection error:', err));
 var age = '';
 var gender = '';
+var slider = '';
 const number = Math.floor(Date.now() + Math.random());
 console.log(number);
 const responseSchema = new mongoose.Schema({
@@ -38,6 +39,10 @@ const userSchema = new mongoose.Schema({
     uid: Number,
     age: String,
     gender: String,
+    slider: {
+        type: String,
+        required: true
+    },
     responses: [responseSchema]
 })
 const User = new mongoose.model('User', userSchema);
@@ -56,6 +61,9 @@ app.get("/", function(req, res){
 app.post("/", function(req, res){
     console.log(req.body.rgbColor);
 });
+app.get("/ins", (req,res)=>{
+    res.render("instruction");
+})
 app.post("/form", (req, res)=>{
     res.render("userform");
 })
@@ -63,8 +71,13 @@ app.post("/user", (req, res)=>{
     console.log(req.body);
     age = req.body.age;
     gender = req.body.gender;
-    res.redirect('change');
+    res.redirect('slider');
     
+})
+app.post('/userslider', (req,res)=>{
+    console.log(req.body)
+    slider = req.body.sliderRGB.substring(4,13)
+    res.redirect("change")
 })
 app.get("/slider", (req,res)=>{
     res.render("slider");
@@ -116,6 +129,7 @@ app.get("/finish", function (req, res){
         uid: number,
         age: age,
         gender: gender,
+        slider: slider,
         responses: dataArray
     })
     console.log(newUser);

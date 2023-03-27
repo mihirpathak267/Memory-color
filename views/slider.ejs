@@ -3,8 +3,8 @@
     <div class="container-fluid py-5 jumbo">
       <h1 class="display-5 fw-bold heading">Memory Color</h1>
         <p class="instructionp">To begin with the experiment you first need to adjust the slider to the color of banana you most agree with.</p>
-        <form action="/change" method="post">
-        <svg version="1.0" xmlns="http://www.w3.org/2000/svg" id="my-image"
+        <form action="/userslider" method="post">
+        <svg version="1.0" xmlns="http://www.w3.org/2000/svg" id="slider-image"
 		width="395.000000pt" height="220.000000pt" viewBox="0 0 595.000000 420.000000" onload="colorSVG()">
 	   
 	   <g transform="translate(0.000000,420.000000) scale(0.100000,-0.100000)" >
@@ -25,11 +25,14 @@
         <div id="color-picker-marker"></div>
         </div>
         <div class="btn">
-            <input type="hidden" id="rgb" name="sliderRGB">
+            <input type="hidden" class="sliderRGB" id="slider" name="sliderRGB">
             <button type="submit" class="btn btn-dark">Submit</button>
           </div>
           </form>
     </div>
 </div>
 
-<%- include("partials/footer"); -%>
+</div>
+<script src="/scripts/slider.js"></script>
+</body>
+</html> 

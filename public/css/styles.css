@@ -51,8 +51,8 @@ ul, li {
     margin-top: -40px;
 }
 .btn{
-    margin-top: 10px;
-    margin-bottom: -20px;
+    /* margin-top: 10px;
+    margin-bottom: -20px; */
 }
 
 .instructionp{
@@ -119,6 +119,8 @@ ul, li {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .gender{
     margin-right: 20px;

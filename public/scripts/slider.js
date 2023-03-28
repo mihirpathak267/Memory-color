@@ -1,5 +1,14 @@
 const colorPicker = document.getElementById("color-picker");
 const marker = document.getElementById("color-picker-marker");
+const form = document.querySelector('form');
+const input = document.getElementById('slider');
+
+form.addEventListener('submit', function(event) {
+  if (!input.value) {
+    event.preventDefault();
+    alert('Please adjust the slider before pressing submit');
+  }
+});
 
 
 function getColor(x) {

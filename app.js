@@ -115,7 +115,7 @@ app.get("/change", function(req, res){
     if (question<12){
     question+=1;
 
-    res.render("change", {stimuliTitle: sequence[inde], color: color, question:question});
+    res.render("change", {stimuliTitle: sequence[inde], color: color});
     inde+=1;
     }
     else {
@@ -135,7 +135,7 @@ app.get("/finish", function (req, res){
         responses: dataArray
     })
     console.log(newUser);
-    newUser.save((err)=>console.log(err));
+    // newUser.save((err)=>console.log(err));
 
 
     res.render("finish")

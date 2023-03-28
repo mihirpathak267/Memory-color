@@ -1,5 +1,8 @@
 const colorPicker = document.getElementById("color-picker");
 const marker = document.getElementById("color-picker-marker");
+const subBtn = document.getElementById("subBtn");
+
+let userInteract = false;
 
 
 function getColor(x) {
@@ -17,6 +20,11 @@ function updateMarker(x) {
 	console.log(getColor(x));
 	document.getElementById("rgb").setAttribute("value", getColor(x));
 	// document.getElementsByClassName("sliderRGB").setAttribute("value", getColor(x));
+	 // Set userInteracted flag to true
+	 userInteracted = true;
+
+	 // Enable submit button
+	 subBtn.disabled = false;
 }
 
 function getPosition(element) {
@@ -36,6 +44,16 @@ colorPicker.addEventListener("click", function(event) {
 });
 
 updateMarker(Math.floor(Math.random() * 300));
+
+// Disable submit button initially after calling the updateMarker
+subBtn.disabled = true;
+
+subBtn.addEventListener("click", function () {
+	if (!userInteracted) {
+	  alert("Please select a color before submitting.");
+	  return false;
+	}
+  });
 // Get the image element
 var image = document.getElementById("my-image");
 
@@ -48,10 +66,6 @@ var g = 159 + Math.floor(Math.random() * 33);
 var b = 0;
 var color = "rgb(" + r + "," + g + "," + b + ")";
 
-// Set the image's background color using the random color
-// window.onload(()=>{
-// 	image.style.fill = color;
-// 	rectangle.style.fill = color;
-// })
+
 
 

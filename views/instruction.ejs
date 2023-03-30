@@ -6,23 +6,31 @@
     <h3> Follow the instrcutions to perform the experiment</h3>
 
     <p>Step 1: You will see a Banana or a Rectangle of shades from yellow to orange. You will also get 2 options slider or button choice.</p>
-  <ul>
-    <li><img src="images/banana-choice.jpeg" alt="bc" height="250" width="500"></li>
-    <li><img src="images/banana-slider.jpeg" alt="bs" height="250" width="500">
-    </li>
-      <li><img src="images/rectangle-choice.jpeg" alt="rc"height="250" width="500">
-      </li>
-        <li><img src="images/rectangle-slider.jpeg" alt="rs"height="250" width="500">
-        </li>
-  </ul>
-    <p>Step 2: You have to select the best match of object color from the given options of slider and button.</p>
-    <p>Note: Select the color that best matches to the object color.</p>
-    <form action="">
-    <div class="btn">
-        <input type="hidden" class="sliderRGB" id="slider" name="sliderRGB">
-        <button type="submit" class="btn btn-dark">Submit</button>
+  <div class="centering">
+    <div class="row">
+    <div class="column"><img src="images/banana-choice.jpeg" alt="bc" height="200" width="400"></div>
+  
+    <div class="column"><img src="images/banana-slider.jpeg" alt="bs" height="200" width="400"></div>
+    </div>
+
+      <div class="row">
+        <div class="column"> <img src="images/rectangle-choice.jpeg" alt="rc"height="200" width="400"></div>
+      
+        <div class="column"><img src="images/rectangle-slider.jpeg" alt="rs"height="200" width="400"></div>
+        </div>
       </div>
-    </form>
+    </br>
+  </br>
+    <p>These are the given colors with labels</p>
+    <div class="square orange">Orange</div>
+    <div class="square amber">Amber</div>
+    <div class="square yellow">Yellow</div>
+</br>
+</br>
+    <p>Step 2: You have to select the best match of object color from the given options of slider and button.</p>
+
+    <b>Note: Select the color that best matches to the object color.</b>
+
 </div>
 
 <%- include("partials/footer"); -%>

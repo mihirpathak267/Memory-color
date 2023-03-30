@@ -1,19 +1,30 @@
-body 
-{
-	display: table-cell;
-    vertical-align: middle;
-    align-content: center;
-    font-size: larger;
-}
-ul {
-  white-space: nowrap;
-}
-
-ul, li {
-  display: grid;
-  grid-template-columns: repeat(2, 2fr);
-  grid-gap: 10px;
-}
+.centering{
+    position: relative;
+        padding-left:23.00%;
+        padding-right: 15%;
+    }
+    .column {
+        
+        width: auto;
+        padding: 10px;
+        
+      }
+     
+      .square {
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+        margin-right: 10px;
+    }
+    .orange {
+        background-color: orange;
+    }
+    .amber {
+        background-color: #FFBF00;
+    }
+    .yellow {
+        background-color: yellow;
+    }
 
 #color-picker {
     width: 335px;

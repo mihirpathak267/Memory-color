@@ -15,7 +15,7 @@
 			<%} else {%>
 				<p class="instructionp">Choose the color you see on the image below</p>
 			<% } %>
-		<form action="/change" method="post">  
+		<form action="/questions" method="post">  
           <%  if (stimuliTitle[0] == "b"){ %>
 			<% const col = color%>
 			<style>
@@ -95,7 +95,7 @@
 			<!-- <button class="btn btn-primary btn-lg" type="submit" value="rectangle-slider" name="stimuli">Submit</button> -->
 			<div class="btn">
 				
-				<button type="submit" class="btn btn-lg btn-dark" value="rectangle-slider" name="stimuli">Submit</button>
+				<button type="submit" id="subBtn" class="btn btn-lg btn-dark" value="rectangle-slider" name="stimuli">Submit</button>
 			  </div>
 			<%} else {%>
 				<div class="genderbox">

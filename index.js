@@ -34,7 +34,7 @@ app.get("/", function(req, res){
 app.post("/", function(req, res){
     console.log(req.body.rgbColor);
 });
-app.get("/ins", (req,res)=>{
+app.get("/instruction", (req,res)=>{
     res.render("instruction");
 })
 app.post("/form", (req, res)=>{
@@ -44,13 +44,13 @@ app.post("/user", (req, res)=>{
     console.log(req.body);
     age = req.body.age;
     gender = req.body.gender;
-    res.redirect('slider');
+    res.redirect('instruction');
     
 })
 app.post('/userslider', (req,res)=>{
     console.log(req.body)
     slider = req.body.sliderRGB.substring(4,13)
-    res.redirect("change")
+    res.redirect("questions")
 })
 app.get("/slider", (req,res)=>{
     res.render("slider");
@@ -77,7 +77,7 @@ var question = 0;
 var inde = 0;   
 var dataArray = [];
 // make a get route for the change ejs file that randomly changes the stimuli shown
-app.get("/change", function(req, res){
+app.get("/questions", function(req, res){
     
     // var change = Math.floor(Math.random()*4);
     // var stimuli = defaultArray[change];
@@ -86,7 +86,7 @@ app.get("/change", function(req, res){
     if (question<12){
     question+=1;
 
-    res.render("change", {stimuliTitle: sequence[inde], color: color});
+    res.render("questions", {stimuliTitle: sequence[inde], color: color});
     inde+=1;
     }
     else {
@@ -111,7 +111,7 @@ app.get("/finish", function (req, res){
 
     res.render("finish")
 })
-app.post("/change", (req,res)=>{
+app.post("/questions", (req,res)=>{
     console.log(req.body)
     const stimuli = req.body.stimuli;
     const questionRGB = req.body.qrgbColor.substring(4,13);
@@ -129,7 +129,7 @@ app.post("/change", (req,res)=>{
     )
     console.log(dataArray);
     
-    res.redirect('/change');
+    res.redirect('/questions');
 })
 // User.findOne({uid:1679672785665})
 // .then((user)=>console.log(user))

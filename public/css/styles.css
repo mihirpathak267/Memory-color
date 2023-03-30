@@ -14,7 +14,7 @@
         width: 100px;
         height: 100px;
         display: inline-block;
-        margin-right: 10px;
+        
     }
     .orange {
         background-color: orange;
@@ -24,6 +24,36 @@
     }
     .yellow {
         background-color: yellow;
+    }
+    .insbanana{
+        position: relative;
+        right: 250px;
+        fill: #FFBF00;
+    }
+
+    .insrectangle{
+        position: absolute;
+        left: 250px;
+        fill: #FFBF00;
+    }
+    .insslider{
+        display: inline-block;
+        right: 250px;
+        margin-right: 140px;
+    }
+    .inschoice{
+        display: inline-block;
+        margin-bottom: 15px;
+        margin-right: 65%;
+    }
+    .heading{
+        padding-top: 35px;
+        font-size: 3.5rem;
+    }
+    .row{
+        justify-content: center;
+        padding: 9px;
+
     }
 
 #color-picker {
@@ -53,6 +83,7 @@
 
 #h3head{
     text-align: center;
+    font-family: 'Merriweather Sans', sans-serif;
 }
 .jumbo{
     color: black;
@@ -60,6 +91,7 @@
 }
 .heading{
     margin-top: -40px;
+    font-family: 'Merriweather Sans', sans-serif;
 }
 .btn{
     /* margin-top: 10px;
@@ -67,8 +99,17 @@
 }
 
 .instructionp{
+    font-family: 'Merriweather Sans', sans-serif;
     font-size: x-large;
     margin-right: 5px;
+}
+.instruction-text{
+    
+    padding: 5%;
+}
+.instruction-text1{
+    
+    padding: 3%;
 }
 .bd-placeholder-img {
     font-size: 1.125rem;
@@ -124,14 +165,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 15px;
+    padding-bottom: 10px;
 }
 .genderbox{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding-top:20px;
+    padding-bottom: 10px;
 }
 .gender{
     margin-right: 20px;

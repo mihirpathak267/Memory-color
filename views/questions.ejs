@@ -43,10 +43,11 @@
 	   <% if (stimuliTitle[1] == "s"){ %>
 		
 	   <br>
-		  <div id="color-picker-container">
-			<div id="color-picker"></div>
-			<div id="color-picker-marker"></div>
-            </div>
+	   <div class="container middle1">
+		<div id="color-picker-container">
+		 <div id="color-picker"></div>
+		 <div id="color-picker-marker"></div>
+		 </div>
 
 			
 			<input type="hidden" id="qrgb" name="qrgbColor" value="<%= col %>">
@@ -56,7 +57,7 @@
 				<button type="submit" id="subBtn" class="btn btn-lg btn-dark" value="banana-slider" name="stimuli">Submit</button>
 			  </div>
 			<%} else {%>
-				<div class="genderbox">
+				<div class="container middle">
 				
 				<select name="rgbColor" id="colors" required>
 				<option value="" selected disabled hidden>Choose color</option>
@@ -85,10 +86,11 @@
 
 		<% if (stimuliTitle[1] == "s") { %>
 			<br>
-		  <div id="color-picker-container">
-			<div id="color-picker"></div>
-			<div id="color-picker-marker"></div>
-            </div>
+			<div class="container middle">
+				<div id="color-picker-container">
+				 <div id="color-picker"></div>
+				 <div id="color-picker-marker"></div>
+				 </div>
 			<input type="hidden" id="qrgb" name="qrgbColor" value="<%= col %>">
 			<input type="hidden" id="rgb" name="rgbColor">
 			
@@ -98,7 +100,7 @@
 				<button type="submit" id="subBtn" class="btn btn-lg btn-dark" value="rectangle-slider" name="stimuli">Submit</button>
 			  </div>
 			<%} else {%>
-				<div class="genderbox">
+				<div class="container middle">
 	
 					<select name="rgbColor" id="colors" required>
 					<option value="" selected disabled hidden>Choose color</option>

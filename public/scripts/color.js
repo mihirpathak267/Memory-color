@@ -43,7 +43,7 @@ colorPicker.addEventListener("click", function(event) {
 	updateMarker(x);
 });
 
-updateMarker(Math.floor(Math.random() * 300));
+updateMarker(Math.floor(Math.random() * 335));
 
 // Disable submit button initially after calling the updateMarker
 subBtn.disabled = true;

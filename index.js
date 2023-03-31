@@ -4,7 +4,7 @@ const User = require('./models/user.model');
 const XLSX = require('xlsx');
 const fs = require('fs');
 
-const jsonData = require('./dat.json');
+//const jsonData = require('./dat.json');
 
 const mongoose = require('mongoose');
 
@@ -205,7 +205,7 @@ const workbook = XLSX.utils.book_new();
 XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
 
 // write the workbook to a file
-XLSX.writeFile(workbook, 'data4.xlsx');  
+XLSX.writeFile(workbook, 'data5.xlsx');  
     
 console.log("succesfully generated the excel file");
 }

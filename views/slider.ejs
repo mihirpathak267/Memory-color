@@ -2,7 +2,11 @@
 <div class="p-5 mb-4 bg-light rounded-3">
     <div class="container-fluid py-4 jumbo">
       <!-- <h1 class="display-5 fw-bold heading">Memory Color</h1> -->
-        <p class="instructionp">To begin with the experiment you first need to adjust the slider to the color of banana you most agree with.</p>
+      <div class="instruction-text1">
+        <p class="instructionp">To begin with the experiment </p>
+        <p class="instructionp">Click on the slider the color you think a banana is according to you</p>
+      </div>
+       
         <form action="/userslider" method="post">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg" id="slider-image"
 		width="395.000000pt" height="220.000000pt" viewBox="0 0 595.000000 420.000000" onload="colorSVG()">
@@ -20,13 +24,15 @@
 	   -40 c27  " />
 	   </g>
 	   </svg>
+     <div class="container middle">
        <div id="color-picker-container">
         <div id="color-picker"></div>
         <div id="color-picker-marker"></div>
         </div>
+      </div>
         <div class="btn">
             <input type="hidden" class="sliderRGB" id="slider" name="sliderRGB" required pattern="\S+">
-            <button type="submit" class="btn btn-dark">Submit</button>
+            <button type="submit" class="btn btn-dark">Start Experiment</button>
           </div>
           </form>
     </div>

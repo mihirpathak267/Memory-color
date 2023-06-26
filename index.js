@@ -4,7 +4,7 @@ const User = require('./models/user.model');
 const XLSX = require('xlsx');
 const fs = require('fs');
 
-//const jsonData = require('./dat.json');
+const jsonData = require('./day7dat.json');
 
 const mongoose = require('mongoose');
 
@@ -85,6 +85,12 @@ app.get("/questions", function(req, res){
     
     if (question<12){
     question+=1;
+    if (question==2 || question==5){
+        prompt("You have been given a break for one minute")
+        setTimeout(()=>{
+            prompt("you can continue with the experiment now");
+        },1000)
+    }
 
     res.render("questions", {stimuliTitle: sequence[inde], color: color});
     inde+=1;
@@ -205,7 +211,7 @@ const workbook = XLSX.utils.book_new();
 XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
 
 // write the workbook to a file
-XLSX.writeFile(workbook, 'data5.xlsx');  
+XLSX.writeFile(workbook, 'day7data.xlsx');  
     
 console.log("succesfully generated the excel file");
 }
